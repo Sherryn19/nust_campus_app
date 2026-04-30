@@ -1,0 +1,29 @@
+name: nust_campus_app
+description: >
+  NUST Campus Student Services App — modular group project.
+  Each feature module lives in lib/features/<module_name>/.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.1.0
+  flutter_animate: ^4.3.0
+  intl: ^0.19.0
+  url_launcher: ^6.2.4
+  cached_network_image: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  # Add shared assets here as the project grows
+  # assets:
+  #   - assets/images/
