@@ -28,7 +28,7 @@ import '../theme/app_theme.dart';
 import '../../features/jobs/screens/jobs_listing_screen.dart';
 
 // GROUP 2 — Alumni Network
-// import '../../features/alumni/screens/alumni_screen.dart';
+import '../../features/alumni/screens/alumni_list_screen.dart';
 
 // GROUP 3 — TED Talks
 // import '../../features/talks/screens/talks_screen.dart';
@@ -75,19 +75,14 @@ final List<NavModule> appModules = [
     isDone: true,
   ),
 
-  // 🔲 GROUP 2 — Alumni Network
+  // ✅ GROUP 2 — Alumni Network
   NavModule(
     label: 'Alumni',
     icon: Icons.people_outline_rounded,
     activeIcon: Icons.people_rounded,
-    screen: const _PlaceholderScreen(
-      icon: Icons.people_rounded,
-      title: 'Alumni Network',
-      description: 'Connect with NUST graduates across industries.',
-      groupName: 'Group 2',
-    ),
+    screen: const AlumniListScreen(),
     groupName: 'Group 2 — Alumni',
-    isDone: false,
+    isDone: true,
   ),
 
   // 🔲 GROUP 3 — TED Talks

@@ -6,7 +6,7 @@
 // ============================================================
 
 import 'package:flutter/material.dart';
-import 'app_theme.dart';
+import '../theme/app_theme.dart';
 
 // ── Pill / Badge ─────────────────────────────────────────────
 class AppBadge extends StatelessWidget {
