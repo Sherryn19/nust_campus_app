@@ -27,16 +27,16 @@ import '../theme/app_theme.dart';
 import '../../features/jobs/screens/jobs_listing_screen.dart';
 
 // GROUP 2 — Alumni Network
-// import '../../features/alumni/screens/alumni_screen.dart';
+import '../../features/alumni/screens/alumni_listing_screen.dart';
 
 // GROUP 3 — TED Talks
 import '../../features/talks/screens/talks_listing_screen.dart';
 
-// GROUP 4 — [Your module name here]
-// import '../../features/your_module/screens/your_screen.dart';
+// GROUP 4 — Events
+import '../../features/events/screens/events_listing_screen.dart';
 
-// GROUP 5 — [Your module name here]
-// import '../../features/your_module/screens/your_screen.dart';
+// GROUP 5 — Resources
+import '../../features/resources/screens/resources_listing_screen.dart';
 
 // GROUP 6 — [Your module name here]
 // import '../../features/your_module/screens/your_screen.dart';
@@ -74,19 +74,14 @@ final List<NavModule> appModules = [
     isDone: true,
   ),
 
-  // 🔲 GROUP 2 — Alumni Network
+  // ✅ GROUP 2 — Alumni Network
   const NavModule(
     label: 'Alumni',
     icon: Icons.people_outline_rounded,
     activeIcon: Icons.people_rounded,
-    screen: _PlaceholderScreen(
-      icon: Icons.people_rounded,
-      title: 'Alumni Network',
-      description: 'Connect with NUST graduates across industries.',
-      groupName: 'Group 2',
-    ),
+    screen: AlumniListingScreen(),
     groupName: 'Group 2 — Alumni',
-    isDone: false,
+    isDone: true,
   ),
 
   // 🔲 GROUP 3 — TED Talks
@@ -99,34 +94,24 @@ final List<NavModule> appModules = [
     isDone: true,
   ),
 
-  // 🔲 GROUP 4 — Add your module (uncomment & replace)
+  // ✅ GROUP 4 — Events
   const NavModule(
-    label: 'Module 4',
-    icon: Icons.grid_view_outlined,
-    activeIcon: Icons.grid_view_rounded,
-    screen: _PlaceholderScreen(
-      icon: Icons.grid_view_rounded,
-      title: 'Module 4',
-      description: 'Your group\'s feature goes here.',
-      groupName: 'Group 4',
-    ),
-    groupName: 'Group 4',
-    isDone: false,
+    label: 'Events',
+    icon: Icons.event_outlined,
+    activeIcon: Icons.event_rounded,
+    screen: EventsListingScreen(),
+    groupName: 'Group 4 — Events',
+    isDone: true,
   ),
 
-  // 🔲 GROUP 5 — Add your module (uncomment & replace)
+  // ✅ GROUP 5 — Resources
   const NavModule(
-    label: 'Module 5',
-    icon: Icons.hub_outlined,
-    activeIcon: Icons.hub_rounded,
-    screen: _PlaceholderScreen(
-      icon: Icons.hub_rounded,
-      title: 'Module 5',
-      description: 'Your group\'s feature goes here.',
-      groupName: 'Group 5',
-    ),
-    groupName: 'Group 5',
-    isDone: false,
+    label: 'Resources',
+    icon: Icons.folder_outlined,
+    activeIcon: Icons.folder_rounded,
+    screen: ResourcesListingScreen(),
+    groupName: 'Group 5 — Resources',
+    isDone: true,
   ),
 ];
 
