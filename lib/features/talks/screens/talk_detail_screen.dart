@@ -4,6 +4,7 @@ import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 import '../models/talk.dart';
 import '../data/talks_data.dart';
 import '../../../core/theme/app_theme.dart';
@@ -29,6 +30,7 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
   ChewieController? _chewieController;
   bool _isLiked = false;
   int _likeCount = 0;
+  bool _showSnackbar = false;
 
   List<Talk> get _relatedTalks {
     if (widget.talk.relatedTalkIds == null) return [];
@@ -92,6 +94,30 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
       _isLiked = !_isLiked;
       _likeCount += _isLiked ? 1 : -1;
     });
+    _showMessage(_isLiked ? 'Added to liked talks' : 'Removed from liked talks');
+  }
+
+  void _shareTalk() {
+    Share.share(
+      'Check out this NUST Talk: "${widget.talk.title}" by ${widget.talk.speaker}',
+      subject: 'NUST Talk: ${widget.talk.title}',
+    );
+  }
+
+  void _downloadTalk() {
+    _showMessage('Downloading talk... (in progress)');
+  }
+
+  void _showMessage(String message) {
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: AppTheme.surfaceHigh,
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
   }
 
   @override
@@ -113,12 +139,15 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
                     size: 26,
                   ),
                   color: widget.talk.isSaved ? AppTheme.accent : AppTheme.textSecondary,
-                  onPressed: widget.onSave,
+                  onPressed: () {
+                    widget.onSave?.call();
+                    _showMessage(widget.talk.isSaved ? 'Removed from saved talks' : 'Saved to list');
+                  },
                 ),
               IconButton(
                 icon: const Icon(Icons.share_rounded, size: 26),
                 color: AppTheme.textSecondary,
-                onPressed: () {},
+                onPressed: _shareTalk,
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
@@ -265,22 +294,25 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
           onTap: _toggleLike,
         ),
         _actionItem(
-          icon: Icons.bookmark_outline_rounded,
+          icon: widget.talk.isSaved ? Icons.bookmark_rounded : Icons.bookmark_outline_rounded,
           label: 'Save',
-          color: AppTheme.textSecondary,
-          onTap: widget.onSave,
+          color: widget.talk.isSaved ? AppTheme.accent : AppTheme.textSecondary,
+          onTap: () {
+            widget.onSave?.call();
+            _showMessage(widget.talk.isSaved ? 'Removed from saved' : 'Saved to list');
+          },
         ),
         _actionItem(
           icon: Icons.share_outlined,
           label: 'Share',
           color: AppTheme.textSecondary,
-          onTap: () {},
+          onTap: _shareTalk,
         ),
         _actionItem(
           icon: Icons.download_outlined,
           label: 'Download',
           color: AppTheme.textSecondary,
-          onTap: () {},
+          onTap: _downloadTalk,
         ),
       ],
     );
@@ -322,6 +354,7 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
                 if (_chewieController != null) {
                   _chewieController!.seekTo(line.timestamp);
                   _chewieController!.play();
+                  _showMessage('Jumped to ${_formatDuration(line.timestamp)}');
                 }
               },
               child: Row(
@@ -400,7 +433,7 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
                   ),
                 const SizedBox(height: 12),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => _showMessage('Showing more talks by ${widget.talk.speaker.split(' ').first}'),
                   child: Text(
                     'More talks by ${widget.talk.speaker.split(' ').first}',
                     style: AppTheme.label(13, color: AppTheme.accent, weight: FontWeight.w600),
