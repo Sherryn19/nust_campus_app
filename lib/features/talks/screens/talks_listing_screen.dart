@@ -297,8 +297,8 @@ class _TalksListingScreenState extends State<TalksListingScreen> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [AppTheme.accent, const Color(0xFF8B83FF)],
+                gradient: const LinearGradient(
+                  colors: [AppTheme.accent, Color(0xFF8B83FF)],
                 ),
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [

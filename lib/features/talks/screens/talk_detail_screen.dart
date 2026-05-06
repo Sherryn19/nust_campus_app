@@ -171,7 +171,7 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
                   ),
                   const SizedBox(height: 32),
                   if (widget.talk.whyItMatters.isNotEmpty) ...[
-                    SectionHeader(title: 'Why it Matters'),
+                    const SectionHeader(title: 'Why it Matters'),
                     const SizedBox(height: 16),
                     Container(
                       padding: const EdgeInsets.all(16),
@@ -187,7 +187,7 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
                     ),
                     const SizedBox(height: 32),
                   ],
-                  SectionHeader(title: 'About this talk'),
+                  const SectionHeader(title: 'About this talk'),
                   const SizedBox(height: 16),
                   Text(
                     widget.talk.description,
@@ -195,23 +195,23 @@ class _TalkDetailScreenState extends State<TalkDetailScreen> {
                   ),
                   const SizedBox(height: 32),
                   if (widget.talk.transcript != null && widget.talk.transcript!.isNotEmpty) ...[
-                    SectionHeader(title: 'Transcript'),
+                    const SectionHeader(title: 'Transcript'),
                     const SizedBox(height: 16),
                     _transcriptSection(),
                     const SizedBox(height: 32),
                   ],
-                  SectionHeader(title: 'About the Speaker'),
+                  const SectionHeader(title: 'About the Speaker'),
                   const SizedBox(height: 16),
                   _speakerSection(),
                   const SizedBox(height: 32),
                   if (widget.talk.furtherReading != null && widget.talk.furtherReading!.isNotEmpty) ...[
-                    SectionHeader(title: 'Further Reading'),
+                    const SectionHeader(title: 'Further Reading'),
                     const SizedBox(height: 16),
                     _furtherReadingSection(),
                     const SizedBox(height: 32),
                   ],
                   if (_relatedTalks.isNotEmpty) ...[
-                    SectionHeader(title: 'Related Talks'),
+                    const SectionHeader(title: 'Related Talks'),
                     const SizedBox(height: 16),
                   ],
                 ],

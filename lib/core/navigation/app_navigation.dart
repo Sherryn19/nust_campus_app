@@ -32,8 +32,8 @@ import '../../features/jobs/screens/jobs_listing_screen.dart';
 // GROUP 3 — TED Talks
 import '../../features/talks/screens/talks_listing_screen.dart';
 
-// GROUP 4 — [Your module name here]
-// import '../../features/your_module/screens/your_screen.dart';
+// GROUP 4 — Task Tracker ✅
+import '../../features/task_tracker/screens/task_tracker_screen.dart';
 
 // GROUP 5 — [Your module name here]
 // import '../../features/your_module/screens/your_screen.dart';
@@ -99,19 +99,14 @@ final List<NavModule> appModules = [
     isDone: true,
   ),
 
-  // 🔲 GROUP 4 — Add your module (uncomment & replace)
+  // ✅ GROUP 4 — Task Tracker
   const NavModule(
-    label: 'Module 4',
-    icon: Icons.grid_view_outlined,
-    activeIcon: Icons.grid_view_rounded,
-    screen: _PlaceholderScreen(
-      icon: Icons.grid_view_rounded,
-      title: 'Module 4',
-      description: 'Your group\'s feature goes here.',
-      groupName: 'Group 4',
-    ),
-    groupName: 'Group 4',
-    isDone: false,
+    label: 'Tasks',
+    icon: Icons.checklist_outlined,
+    activeIcon: Icons.checklist_rounded,
+    screen: TaskTrackerScreen(),
+    groupName: 'Group 4 — Task Tracker',
+    isDone: true,
   ),
 
   // 🔲 GROUP 5 — Add your module (uncomment & replace)

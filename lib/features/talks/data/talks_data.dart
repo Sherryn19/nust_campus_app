@@ -19,13 +19,13 @@ class TalksData {
       isFeatured: true,
       isTrending: true,
       transcript: [
-        TalkTranscriptLine(text: 'Good morning everyone. It\'s an honor to be here today.', timestamp: const Duration(seconds: 0)),
-        TalkTranscriptLine(text: 'Today we\'re talking about AI and its future in Zimbabwe.', timestamp: const Duration(seconds: 15)),
-        TalkTranscriptLine(text: 'AI can transform our agriculture, healthcare, and education sectors.', timestamp: const Duration(seconds: 45)),
+        const TalkTranscriptLine(text: 'Good morning everyone. It\'s an honor to be here today.', timestamp: Duration(seconds: 0)),
+        const TalkTranscriptLine(text: 'Today we\'re talking about AI and its future in Zimbabwe.', timestamp: Duration(seconds: 15)),
+        const TalkTranscriptLine(text: 'AI can transform our agriculture, healthcare, and education sectors.', timestamp: Duration(seconds: 45)),
       ],
       furtherReading: [
-        FurtherReadingItem(title: 'AI in Africa', author: 'African Tech Review', url: 'https://example.com'),
-        FurtherReadingItem(title: 'Machine Learning for Beginners', author: 'Dr. Chigwanda', url: 'https://example.com'),
+        const FurtherReadingItem(title: 'AI in Africa', author: 'African Tech Review', url: 'https://example.com'),
+        const FurtherReadingItem(title: 'Machine Learning for Beginners', author: 'Dr. Chigwanda', url: 'https://example.com'),
       ],
       relatedTalkIds: ['2', '4'],
     ),
@@ -45,10 +45,10 @@ class TalksData {
       views: 1800000,
       isTrending: true,
       transcript: [
-        TalkTranscriptLine(text: 'Let\'s talk about the sun — our most abundant energy resource.', timestamp: const Duration(seconds: 0)),
+        const TalkTranscriptLine(text: 'Let\'s talk about the sun — our most abundant energy resource.', timestamp: Duration(seconds: 0)),
       ],
       furtherReading: [
-        FurtherReadingItem(title: 'Solar Power in Africa', author: 'Energy Africa', url: 'https://example.com'),
+        const FurtherReadingItem(title: 'Solar Power in Africa', author: 'Energy Africa', url: 'https://example.com'),
       ],
       relatedTalkIds: ['1', '5'],
     ),
